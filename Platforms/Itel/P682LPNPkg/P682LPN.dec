@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = P682LPN
+  PACKAGE_GUID                        = E75F0D93-EDBB-4231-A0DF-77988E675D19
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gP682LPNTokenSpaceGuid               = { 0x930D5FE7, 0xBBED, 0x3142, { 0xA0, 0xDF, 0x77, 0x98, 0x8E, 0x67, 0x5D, 0x19 } }

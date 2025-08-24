@@ -1,0 +1,15 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = UnisocPkg
+  PACKAGE_GUID                        = 3B6E136B-ADAC-475F-8326-4DC0572ACA68
+  PACKAGE_VERSION                     = 0.1
+
+#[Includes]
+#  Include                               # Root include for the package
+
+[Guids]
+  gUnisocPkgTokenSpaceGuid            = { 0x6B136E3B, 0xACAD, 0x5F47, { 0x83, 0x26, 0x4D, 0xC0, 0x57, 0x2A, 0xCA, 0x68 } }
+
+[PcdsFixedAtBuild]
+  # Dynamic RAM PCD
+  gUnisocPkgTokenSpaceGuid.PcdRamPartitionBase|0|UINT64|0x0000B000
