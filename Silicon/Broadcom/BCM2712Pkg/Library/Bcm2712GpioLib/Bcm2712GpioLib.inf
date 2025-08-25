@@ -1,0 +1,18 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = Bcm2712GpioLib
+  FILE_GUID                      = 86A00EA0-6C21-4408-B8C7-3AE675C4678B
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = Bcm2712GpioLib
+
+[Sources]
+  Bcm2712GpioLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  BroadcomPkg/BroadcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  IoLib

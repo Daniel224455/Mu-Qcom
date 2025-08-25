@@ -1,0 +1,26 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = BroadcomPkg
+  PACKAGE_GUID                        = F2EF8467-EC96-4C6A-97B6-97DA9D1FCEB3
+  PACKAGE_VERSION                     = 0.1
+
+[Includes]
+  Include                               # Root include for the package
+
+[Guids]
+  gBroadcomPkgTokenSpaceGuid          = { 0x6784EFF2, 0x96EC, 0x6A4C, { 0x97, 0xB6, 0x97, 0xDA, 0x9D, 0x1F, 0xCE, 0xB3 } }
+
+[Protocols]
+  gBrcmStbSdhciDeviceProtocolGuid     = { 0xD6C196F9, 0x9C8C, 0x448F, { 0xBD, 0x21, 0xD9, 0x76, 0xA8, 0x3A, 0x82, 0x7F } }
+  gBcmGenetPlatformDeviceProtocolGuid = { 0x5E485A22, 0x1BB0, 0x4E22, { 0x85, 0x49, 0x41, 0xFC, 0xEC, 0x85, 0xDF, 0xD3 } }
+  gBcm2712PciePlatformProtocolGuid    = { 0xf411a098, 0xc82b, 0x4920, { 0x90, 0x07, 0xca, 0x70, 0xb3, 0x65, 0x33, 0x89 } }
+
+[PcdsFixedAtBuild.common]
+  gBroadcomPkgTokenSpaceGuid.PcdBcm283xRegistersAddress|0x0|UINT32|0x00000001
+  gBroadcomPkgTokenSpaceGuid.PcdBcm2838RngBaseAddress|0x0|UINT64|0x00000002
+  gBroadcomPkgTokenSpaceGuid.PcdBcm27xxRegistersAddress|0x0|UINT32|0x00000003
+  gBroadcomPkgTokenSpaceGuid.PcdBcm27xxPciRegBase|0x0|UINT32|0x00000004
+  gBroadcomPkgTokenSpaceGuid.PcdBcm27xxPciBusMmioAdr|0x0|UINT64|0x00000005
+  gBroadcomPkgTokenSpaceGuid.PcdBcm27xxPciBusMmioLen|0x0|UINT32|0x00000006
+  gBroadcomPkgTokenSpaceGuid.PcdBcm27xxPciCpuMmioAdr|0x0|UINT64|0x00000007
+  gBroadcomPkgTokenSpaceGuid.PcdBcmGenetRegistersAddress|0x0|UINT64|0x00000008  

@@ -1,0 +1,36 @@
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = Bcm2838RngDxe
+  FILE_GUID                      = 5ec564ce-b656-435c-a652-5cb719784542
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = Bcm2838RngEntryPoint
+
+[Sources]
+  Bcm2838RngDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  BroadcomPkg/BroadcomPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  IoLib
+  PcdLib
+  TimerLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+
+[Protocols]
+  gEfiRngProtocolGuid              ## PRODUCES
+
+[Guids]
+  gEfiRngAlgorithmRaw
+
+[FixedPcd]
+  gBroadcomPkgTokenSpaceGuid.PcdBcm2838RngBaseAddress
+
+[Depex]
+  TRUE

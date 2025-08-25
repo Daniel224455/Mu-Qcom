@@ -1,0 +1,31 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = BrcmStbSdhciDxe
+  FILE_GUID                      = D72A2469-F274-48E1-9BCB-3A28A2A09234
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = BrcmStbSdhciDxeInitialize
+
+[Sources]
+  BrcmStbSdhciDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  BroadcomPkg/BroadcomPkg.dec
+
+[LibraryClasses]
+  DebugLib
+  IoLib
+  NonDiscoverableDeviceRegistrationLib
+  UefiLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+
+[Protocols]
+  gEdkiiNonDiscoverableDeviceProtocolGuid         ## PRODUCES
+  gEdkiiSdMmcOverrideProtocolGuid                 ## PRODUCES
+  gBrcmStbSdhciDeviceProtocolGuid                 ## CONSUMES
+
+[Depex]
+  TRUE

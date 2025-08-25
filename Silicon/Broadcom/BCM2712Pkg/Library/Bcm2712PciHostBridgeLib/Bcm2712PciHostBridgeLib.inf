@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = Bcm2712PciHostBridgeLib
+  FILE_GUID                      = 04D39AC0-9CA7-4653-8FDD-4E5436E0791C
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PciHostBridgeLib|DXE_DRIVER
+
+[Sources]
+  Bcm2712PciHostBridge.c
+  Bcm2712PciHostBridgeLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  BroadcomPkg/BroadcomPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  DevicePathLib
+  IoLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+
+[Protocols]
+  gBcm2712PciePlatformProtocolGuid      ## CONSUMES
+
+[Depex]
+  gBcm2712PciePlatformProtocolGuid
