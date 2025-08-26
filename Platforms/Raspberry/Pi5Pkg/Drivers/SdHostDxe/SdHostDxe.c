@@ -640,7 +640,7 @@ SdNotifyState (
 
   switch (State) {
   case MmcHwInitializationState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcHwInitializationState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcHwInitializationState\n"));
 
     // Turn-off SD Card power
     MmioWrite32 (SDHOST_VDD, 0);
@@ -683,29 +683,29 @@ SdNotifyState (
     }
     break;
   case MmcIdleState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcIdleState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcIdleState\n"));
     break;
   case MmcReadyState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcReadyState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcReadyState\n"));
     break;
   case MmcIdentificationState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcIdentificationState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcIdentificationState\n"));
     break;
   case MmcStandByState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcStandByState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcStandByState\n"));
     break;
   case MmcTransferState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcTransferState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcTransferState\n"));
     break;
     break;
   case MmcSendingDataState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcSendingDataState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcSendingDataState\n"));
     break;
   case MmcReceiveDataState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcReceiveDataState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcReceiveDataState\n"));
     break;
   case MmcProgrammingState:
-    DEBUG ((DEBUG_MMCHOST_SD, "MmcProgrammingState\n", State));
+    DEBUG ((DEBUG_MMCHOST_SD, "MmcProgrammingState\n"));
     break;
   case MmcDisconnectState:
   case MmcInvalidState:
@@ -740,7 +740,7 @@ SdIsCardPresent (
   //
   Status = SdNotifyState (This, MmcHwInitializationState);
   if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "SdIsCardPresent: Error MmcHwInitializationState, Status=%r.\n", Status));
+    DEBUG ((DEBUG_ERROR, "SdIsCardPresent: Error MmcHwInitializationState, Status=%s.\n", Status));
     // If we failed init, go back to requiring card detection
     mCardDetectState = CardDetectRequired;
     return FALSE;
@@ -748,7 +748,7 @@ SdIsCardPresent (
 
   Status = SdSendCommand (This, MMC_CMD0, 0);
   if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "SdIsCardPresent: CMD0 Error, Status=%r.\n", Status));
+    DEBUG ((DEBUG_ERROR, "SdIsCardPresent: CMD0 Error, Status=%s.\n", Status));
     goto out;
   }
 

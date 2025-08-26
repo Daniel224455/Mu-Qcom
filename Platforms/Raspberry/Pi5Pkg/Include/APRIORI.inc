@@ -25,13 +25,20 @@ APRIORI DXE {
   INF MdeModulePkg/Universal/CapsuleRuntimeDxe/CapsuleRuntimeDxe.inf
   INF MdeModulePkg/Universal/HiiDatabaseDxe/HiiDatabaseDxe.inf
 
+  INF BroadcomPkg/Drivers/Bcm2838RngDxe/Bcm2838RngDxe.inf
+  INF Pi5Pkg/Drivers/Rp1BusDxe/Rp1BusDxe.inf
+  INF BroadcomPkg/Drivers/BrcmStbSdhciDxe/BrcmStbSdhciDxe.inf
+  INF Pi5Pkg/Drivers/RpiFirmwareDxe/RpiFirmwareDxe.inf
+  INF Pi5Pkg/Drivers/RpiPlatformDxe/RpiPlatformDxe.inf
+  INF Pi5Pkg/Drivers/MemoryAttributeManagerDxe/MemoryAttributeManagerDxe.inf
+  INF Pi5Pkg/Drivers/FdtDxe/FdtDxe.inf
+  #INF MdeModulePkg/Bus/Pci/PciHostBridgeDxe/PciHostBridgeDxe.inf
+  #INF MdeModulePkg/Bus/Pci/PciBusDxe/PciBusDxe.inf
+  #INF MdeModulePkg/Bus/Pci/NonDiscoverablePciDeviceDxe/NonDiscoverablePciDeviceDxe.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
 
-!if $(USE_CUSTOM_DISPLAY_DRIVER) == 0
-  INF SiliciumPkg/Drivers/SimpleFbDxe/SimpleFbDxe.inf
-!endif
-  #INF SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
-  #INF SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  INF Pi5Pkg/Drivers/DisplayDxe/DisplayDxe.inf
 
   INF EmbeddedPkg/SimpleTextInOutSerial/SimpleTextInOutSerial.inf
   INF MdeModulePkg/Universal/Console/ConPlatformDxe/ConPlatformDxe.inf

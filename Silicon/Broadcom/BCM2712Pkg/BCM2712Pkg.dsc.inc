@@ -62,7 +62,8 @@
   HwResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   SoCPlatformLib|BCM2712Pkg/Library/SoCPlatformLib/SoCPlatformLib.inf
-  GpioLib|BCM2712Pkg/Library/Bcm2712GpioLib/Bcm2712GpioLib.inf
+  #GpioLib|BCM2712Pkg/Library/Bcm2712GpioLib/Bcm2712GpioLib.inf
+  Bcm2712GpioLib|BCM2712Pkg/Library/Bcm2712GpioLib/Bcm2712GpioLib.inf
   PciHostBridgeLib|BCM2712Pkg/Library/Bcm2712PciHostBridgeLib/Bcm2712PciHostBridgeLib.inf
   PciSegmentLib|BCM2712Pkg/Library/Bcm2712PciSegmentLib/PciSegmentLib.inf
   

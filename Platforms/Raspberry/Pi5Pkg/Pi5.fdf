@@ -56,6 +56,31 @@ FILE = Platforms/Raspberry/Pi5Pkg/BLBlob/bl31.bin
 gArmTokenSpaceGuid.PcdFvBaseAddress|gArmTokenSpaceGuid.PcdFvSize
 FV = FVMAIN_COMPACT
 
+#
+# Variables (0x20000 overall).
+#
+# 0x001e0000 - 0x001edfff EFI_FIRMWARE_VOLUME_HEADER
+# 0x001ee000 - 0x001eefff Event log
+# 0x001ef000 - 0x001effff EFI_FAULT_TOLERANT_WORKING_BLOCK_HEADER-
+# 0x001f0000 - 0x001fffff Data
+#
+
+# NV_VARIABLE_STORE
+0x001d0000|0x0000e000
+gPi5TokenSpaceGuid.PcdNvStorageVariableBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
+
+# NV_EVENT_LOG
+0x001de000|0x00001000
+gPi5TokenSpaceGuid.PcdNvStorageEventLogBase|gPi5TokenSpaceGuid.PcdNvStorageEventLogSize
+
+# NV_FTW_WORKING header
+0x001df000|0x00001000
+gPi5TokenSpaceGuid.PcdNvStorageFtwWorkingBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize
+
+# NV_FTW_WORKING data
+0x001e0000|0x00010000
+gPi5TokenSpaceGuid.PcdNvStorageFtwSpareBase|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize
+
 ################################################################################
 #
 # FV Section

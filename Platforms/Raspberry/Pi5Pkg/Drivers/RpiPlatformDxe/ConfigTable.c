@@ -708,7 +708,7 @@ InstallAcpiTables (
 
   Status = LocateAndInstallAcpiFromFvConditional (&mAcpiTableFile, NULL);
   if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "%a: Failed to install ACPI tables!\n"));
+    DEBUG ((DEBUG_ERROR, "%a: Failed to install ACPI tables!\n", __func__));
     return Status;
   }
 
@@ -865,7 +865,7 @@ SetupConfigTableVariables (
                   &gRpiPlatformFormSetGuid,
                   NULL, &Size, &Var32);
   if (EFI_ERROR (Status)) {
-    Status = PcdSet32S (PcdSystemTableMode, PcdGet32 (PcdSystemTableMode));
+    //Status = PcdSet32 (PcdSystemTableMode, PcdGet32 (PcdSystemTableMode));
     ASSERT_EFI_ERROR (Status);
   }
 }

@@ -499,14 +499,14 @@ DriverStart (
     goto Done;
   }
 
-  Status = PcdSet8S (PcdDisplayEnableScaledVModes,
-             PcdGet8 (PcdDisplayEnableScaledVModes) & ALL_MODES);
-  ASSERT_EFI_ERROR (Status);
-
-  if (PcdGet8 (PcdDisplayEnableScaledVModes) == 0) {
-    Status = PcdSet8S (PcdDisplayEnableScaledVModes, JUST_NATIVE_ENABLED);
-    ASSERT_EFI_ERROR (Status);
-  }
+  //Status = PcdSet8S (PcdDisplayEnableScaledVModes,
+  //           PcdGet8 (PcdDisplayEnableScaledVModes) & ALL_MODES);
+  //ASSERT_EFI_ERROR (Status);
+//
+  //if (PcdGet8 (PcdDisplayEnableScaledVModes) == 0) {
+  //  Status = PcdSet8S (PcdDisplayEnableScaledVModes, JUST_NATIVE_ENABLED);
+  //  ASSERT_EFI_ERROR (Status);
+  //}
 
   mLastMode = 0;
   for  (TempIndex = 0, Index = 0;

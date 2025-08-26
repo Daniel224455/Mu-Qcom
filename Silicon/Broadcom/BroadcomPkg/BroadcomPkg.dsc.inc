@@ -22,4 +22,10 @@
   # SmBios
   BroadcomPkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf
 
+  # RNG
+  BroadcomPkg/Drivers/Bcm2838RngDxe/Bcm2838RngDxe.inf
+
+  # SdHci
+  BroadcomPkg/Drivers/BrcmStbSdhciDxe/BrcmStbSdhciDxe.inf
+
 !include SiliciumPkg/SiliciumPkg.dsc.inc

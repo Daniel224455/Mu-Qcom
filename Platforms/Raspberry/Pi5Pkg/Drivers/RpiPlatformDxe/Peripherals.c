@@ -23,12 +23,12 @@ STATIC
 EFI_STATUS
 EFIAPI
 SdControllerSetSignalingVoltage (
-  IN BRCMSTB_SDHCI_DEVICE_PROTOCOL      *This,
-  IN SD_MMC_SIGNALING_VOLTAGE           Voltage
+  IN BRCMSTB_SDHCI_DEVICE_PROTOCOL      *This//,
+  //IN SD_MMC_SIGNALING_VOLTAGE           Voltage
   )
 {
   // sd_io_1v8_reg
-  GpioWrite (BCM2712_GIO_AON, 3, Voltage == SdMmcSignalingVoltage18);
+  //GpioWrite (BCM2712_GIO_AON, 3, /*Voltage ==*/ SdMmcSignalingVoltage18);
 
   return EFI_SUCCESS;
 }

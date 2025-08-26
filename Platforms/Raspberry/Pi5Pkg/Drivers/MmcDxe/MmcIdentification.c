@@ -285,7 +285,7 @@ InitializeEmmcDevice (
 
   Status = EmmcSetEXTCSD (MmcHostInstance, EXTCSD_HS_TIMING, EMMC_TIMING_HS);
   if (EFI_ERROR (Status)) {
-    DEBUG ((DEBUG_ERROR, "InitializeEmmcDevice(): Failed to switch high speed mode, Status:%r.\n", Status));
+    DEBUG ((DEBUG_ERROR, "InitializeEmmcDevice(): Failed to switch high speed mode, Status:%s.\n", Status));
     return Status;
   }
 
@@ -519,7 +519,7 @@ SdSetSpeed (
   }
 
   if (!(Buffer[3] & SD_HIGH_SPEED_SUPPORTED)) {
-    DEBUG ((DEBUG_ERROR, "%a: High Speed not supported by Card\n"));
+    DEBUG ((DEBUG_ERROR, "High Speed not supported by Card\n"));
     return EFI_SUCCESS;
   }
 

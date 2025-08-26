@@ -1,0 +1,54 @@
+[Defines]
+  INF_VERSION                    = 0x0001001A
+  BASE_NAME                      = PlatformLib
+  FILE_GUID                      = db33b3d9-1c8c-4bd6-96bf-762e382e2b05
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = ArmPlatformLib|SEC PEIM
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  ArmPkg/ArmPkg.dec
+  ArmPlatformPkg/ArmPlatformPkg.dec
+  BroadcomPkg/BroadcomPkg.dec
+  Pi5Pkg/Pi5.dec
+
+[LibraryClasses]
+  ArmLib
+  FdtLib
+  IoLib
+  MemoryAllocationLib
+  PcdLib
+  PrintLib
+  BoardInfoLib
+  BoardRevisionHelperLib
+
+[Sources.common]
+  RaspberryPi.c
+  RaspberryPiMem.c
+
+[Sources.AARCH64]
+  AArch64/RaspberryPiHelper.S
+
+[FixedPcd]
+  gArmTokenSpaceGuid.PcdFdBaseAddress
+  gArmTokenSpaceGuid.PcdFvBaseAddress
+  gPi5TokenSpaceGuid.PcdFdtBaseAddress
+  gPi5TokenSpaceGuid.PcdFdtSize
+  gArmPlatformTokenSpaceGuid.PcdCoreCount
+  gArmTokenSpaceGuid.PcdArmPrimaryCoreMask
+  gArmTokenSpaceGuid.PcdArmPrimaryCore
+  gArmTokenSpaceGuid.PcdFdSize
+  gEmbeddedTokenSpaceGuid.PcdDmaDeviceOffset
+  gArmTokenSpaceGuid.PcdSystemMemoryBase
+  gArmTokenSpaceGuid.PcdSystemMemorySize
+  gPi5TokenSpaceGuid.PcdNvStorageEventLogSize
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize
+  gPi5TokenSpaceGuid.PcdFwMailboxBaseAddress
+
+[Ppis]
+  gArmMpCoreInfoPpiGuid

@@ -12,7 +12,7 @@
 [Packages]
   MdePkg/MdePkg.dec
   BroadcomPkg/BroadcomPkg.dec
-
+  
 [LibraryClasses]
   DebugLib
   IoLib
