@@ -1,0 +1,8 @@
+[Defines]
+  DEC_SPECIFICATION                   = 0x00010005
+  PACKAGE_NAME                        = r0s
+  PACKAGE_GUID                        = BD7E893C-0575-4AFB-9DC7-ECDA89E95563
+  PACKAGE_VERSION                     = 0.1
+
+[Guids]
+  gr0sTokenSpaceGuid                  = { 0x3C897EBD, 0x7505, 0xFB4A, { 0x9D, 0xC7, 0xEC, 0xDA, 0x89, 0xE9, 0x55, 0x63 } }

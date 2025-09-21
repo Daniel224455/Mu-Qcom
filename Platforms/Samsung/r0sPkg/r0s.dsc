@@ -1,0 +1,66 @@
+##
+#  Copyright (c) 2011 - 2022, ARM Limited. All rights reserved.
+#  Copyright (c) 2014, Linaro Limited. All rights reserved.
+#  Copyright (c) 2015 - 2020, Intel Corporation. All rights reserved.
+#  Copyright (c) 2018, Bingxing Wang. All rights reserved.
+#  Copyright (c) Microsoft Corporation.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+################################################################################
+#
+# Defines Section - statements that will be processed to create a Makefile.
+#
+################################################################################
+[Defines]
+  PLATFORM_NAME                  = r0s
+  PLATFORM_GUID                  = BD7E893C-0575-4AFB-9DC7-ECDA89E95563
+  PLATFORM_VERSION               = 0.1
+  DSC_SPECIFICATION              = 0x00010005
+  OUTPUT_DIRECTORY               = Build/r0sPkg
+  SUPPORTED_ARCHITECTURES        = AARCH64
+  BUILD_TARGETS                  = RELEASE|DEBUG
+  SKUID_IDENTIFIER               = DEFAULT
+  FLASH_DEFINITION               = r0sPkg/r0s.fdf
+  USE_CUSTOM_DISPLAY_DRIVER      = 0
+  HAS_BUILD_IN_KEYBOARD          = 0
+
+[BuildOptions]
+  *_*_*_CC_FLAGS = -DHAS_BUILD_IN_KEYBOARD=$(HAS_BUILD_IN_KEYBOARD)
+
+[PcdsFixedAtBuild]
+  # DDR Start Address
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000
+
+  # Device Maintainer
+  gSiliciumPkgTokenSpaceGuid.PcdDeviceMaintainer|"Daniel224455"
+
+  # UEFI Stack Addresses
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80001000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000
+
+  # SmBios
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemManufacturer|"Samsung Electronics Co., Ltd."
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Galaxy S22"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"r0s"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Galaxy_S22_r0s"
+  gSiliciumPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Galaxy S22"
+
+  # Simple Frame Buffer
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferWidth|1080
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferHeight|2340
+  gSiliciumPkgTokenSpaceGuid.PcdPrimaryFrameBufferColorDepth|32
+
+[LibraryClasses]
+  DeviceMemoryMapLib|r0sPkg/Library/DeviceMemoryMapLib/DeviceMemoryMapLib.inf
+  DeviceGuidLib|r0sPkg/Library/DeviceGuidLib/DeviceGuidLib.inf
+  KeypadDeviceLib|r0sPkg/Library/KeypadDeviceLib/KeypadDeviceLib.inf
+  AcpiDeviceUpdateLib|SiliciumPkg/Library/AcpiDeviceUpdateLibNull/AcpiDeviceUpdateLibNull.inf
+
+[Components]
+  # Keypad
+  SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
+  SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
+
+!include S5E9925Pkg/S5E9925Pkg.dsc.inc
