@@ -1,0 +1,58 @@
+	AREA    |.text|, CODE, READONLY
+        EXPORT  _Head
+
+_Head
+        ADR     x1, _Payload        ; Set _Entry address
+        B       _Start              ; Jump to the real code
+
+        IF REQUIRES_KERNEL_HEADER = 1
+_StackBase
+        DCD     FD_BASE             ; Text Offset
+        DCD     0                   
+
+_StackSize
+        DCQ     FD_SIZE             ; Image Size
+        DCQ     0                   ; Flags
+        DCQ     0                   ; Reserved
+        DCQ     0                   ; Reserved
+        DCQ     0                   ; Reserved
+        DCB     "ARM", 0x64         ; ARM64 Magic
+        DCD     0                   ; Reserved
+        ENDIF
+
+_Start
+        MOV     x4, x1
+        IF REQUIRES_KERNEL_HEADER = 1
+        LDR     x5, _StackBase
+        ELSE
+        LDR     x5, =FD_BASE
+        ENDIF
+        CMP     x4, x5
+        BEQ     _Entry
+        IF REQUIRES_KERNEL_HEADER = 1
+        LDR     x6, _StackSize
+        ELSE
+        LDR     x6, =FD_SIZE
+        ENDIF
+
+_CopyLoop
+        LDP     x2, x3, [x4], #16
+        STP     x2, x3, [x5], #16
+        SUBS    x6, x6, #16
+        BNE     _CopyLoop
+        IF REQUIRES_KERNEL_HEADER = 1
+        LDR     x5, _StackBase
+        ELSE
+        LDR     x5, =FD_BASE
+        ENDIF
+
+_Entry
+        BR      x5
+
+_Dead
+        B       _Dead               ; We should never get here
+
+        ALIGN   4
+_Payload
+        ; Your code will be ran right after this binary
+        END
