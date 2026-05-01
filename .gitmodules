@@ -19,4 +19,4 @@
 [submodule "Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl"]
 	path = Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl
 	url = https://github.com/openssl/openssl.git
-	branch = 830bf8e1e4749ad65c51b6a1d0d769ae689404ba
+	branch = 67b5686b4419b4cb8caa502711c41815f5279751

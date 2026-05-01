@@ -282,7 +282,7 @@
 !else
   BaseCryptLib|OpensslPkg/Library/BaseCryptLib/BaseCryptLib.inf
   OpensslLib|OpensslPkg/Library/OpensslLib/OpensslLib.inf
-  IntrinsicLib|OpensslPkg/Library/IntrinsicLib/IntrinsicLib.inf
+  IntrinsicLib|CryptoPkg/Library/IntrinsicLib/IntrinsicLib.inf
 
   #
   # RNG Libraries
@@ -301,6 +301,11 @@
   #
   FdtLib|MdePkg/Library/BaseFdtLib/BaseFdtLib.inf
   DtPlatformDtbLoaderLib|EmbeddedPkg/Library/DxeDtPlatformDtbLoaderLibDefault/DxeDtPlatformDtbLoaderLibDefault.inf
+
+  #
+  # RTC Libraries
+  #
+  RealTimeClockLib|SiliciumNullPkg/Library/RealTimeClockLibNull/RealTimeClockLibNull.inf
 
   #
   # ...
@@ -344,7 +349,6 @@
   ReportStatusCodeLib|MdeModulePkg/Library/DxeReportStatusCodeLib/DxeReportStatusCodeLib.inf
 
 [LibraryClasses.common.DXE_RUNTIME_DRIVER]
-  RealTimeClockLib|SiliciumNullPkg/Library/RealTimeClockLibNull/RealTimeClockLibNull.inf
 !if $(ENABLE_SECUREBOOT) == 1
   BaseCryptLib|OpensslPkg/Library/BaseCryptLib/RuntimeCryptLib.inf
 !endif

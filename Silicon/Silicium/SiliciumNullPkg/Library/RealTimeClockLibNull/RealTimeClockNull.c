@@ -12,6 +12,8 @@
   IMPLIED.
 **/
 
+#include <PiDxe.h>
+
 #include <Library/DebugLib.h>
 #include <Library/ArmGenericTimerCounterLib.h>
 #include <Library/RealTimeClockLib.h>
